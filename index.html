@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varsity Club | Sports & Entertainment</title>
+    <script>
+        function trackClick(action) {
+            fetch('https://your-tracking-endpoint.com/track', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: action, timestamp: new Date().toISOString() })
+            });
+        }
+        
+        function openPopup(type) {
+            let popupContent = '';
+            if (type === 'join_waitlist' || type === 'membership_info' || type === 'contact_us') {
+                popupContent = `<h2>Sign Up for More Info</h2>
+                                <p>Enter your email to stay updated.</p>
+                                <input type='email' id='email' placeholder='Your Email'>
+                                <button onclick='submitForm("${type}")'>Submit</button>`;
+            } else if (type === 'book_event') {
+                popupContent = `<h2>Book an Event</h2>
+                                <p>Enter your email and we will reach out when we launch.</p>
+                                <input type='email' id='email' placeholder='Your Email'>
+                                <button onclick='submitForm("${type}")'>Submit</button>`;
+            }
+            document.getElementById('popup-content').innerHTML = popupContent;
+            document.getElementById('popup').style.display = 'block';
+        }
+        
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+        
+        function submitForm(action) {
+            let email = document.getElementById('email').value;
+            if (email) {
+                fetch('https://your-tracking-endpoint.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: action, email: email, timestamp: new Date().toISOString() })
+                });
+                alert('Thank you! We will be in touch.');
+                closePopup();
+            } else {
+                alert('Please enter a valid email.');
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+        }
+        header {
+            padding: 20px;
+            background-color: #1f1f1f;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .hero {
+            padding: 50px;
+            background: url('placeholder.jpg') no-repeat center center/cover;
+        }
+        .cta-button {
+            padding: 15px 30px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 18px;
+        }
+        .section {
+            padding: 50px 20px;
+        }
+        footer {
+            background-color: #1f1f1f;
+            padding: 20px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            color: black;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Varsity Club - Grand Rapids</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="sports.html">Sports</a>
+        <a href="food.html">Food and Drink</a>
+        <a href="Leagues">Leagues</a>
+    </nav>
+    <div class="hero">
+        <h2>The Ultimate Sports & Entertainment Experience</h2>
+        <button class="cta-button" onclick="openPopup('join_waitlist')">Join the Waitlist</button>
+        <button class="cta-button" onclick="openPopup('book_event')">Book an Event</button>
+    </div>
+    <div class="section">
+        <h2>About Us</h2>
+        <p>Varsity Club is your home for high-tech sports bays, leagues, private events, and a full-service bar and restaurant in Grand Rapids.</p>
+    </div>
+    <div id="popup" class="popup">
+        <div id="popup-content"></div>
+        <button onclick="closePopup()">Close</button>
+    </div>
+    <footer>
+        <p>Contact us | Follow us on social media | Varsity Club &copy; 2025 - Grand Rapids</p>
+    </footer>
+</body>
+</html>

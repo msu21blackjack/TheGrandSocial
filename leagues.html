@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varsity Club | Leagues</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+        }
+        header {
+            padding: 20px;
+            background-color: #1f1f1f;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .section {
+            padding: 50px 20px;
+        }
+        footer {
+            background-color: #1f1f1f;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Varsity Club - Leagues</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="sports.html">Sports</a>
+        <a href="food.html">Food & Drink</a>
+        <a href="leagues.html">Leagues</a>
+    </nav>
+    <div class="section">
+        <h2>Join a League</h2>
+        <p>Compete, have fun, and be part of an exciting community! We offer leagues for various sports.</p>
+        <h3>Available Leagues:</h3>
+        <ul>
+            <li>Basketball Leagues</li>
+            <li>Football Leagues</li>
+            <li>Pickleball Leagues</li>
+            <li>Soccer Leagues</li>
+            <li>Cornhole Tournaments</li>
+            <li>Sand Volleyball Leagues</li>
+        </ul>
+        <h3>How to Sign Up</h3>
+        <p>Register your team or join as an individual. Click below to get started!</p>
+        <button onclick="openPopup('league_signup')">Sign Up for a League</button>
+    </div>
+    <div id="popup" class="popup" style="display:none;">
+        <div id="popup-content"></div>
+        <button onclick="closePopup()">Close</button>
+    </div>
+    <footer>
+        <p>Contact us | Follow us on social media | Varsity Club &copy; 2025 - Grand Rapids</p>
+    </footer>
+</body>
+</html>
