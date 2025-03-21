@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varsity Club | Pickleball Leagues</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+        }
+        header {
+            padding: 20px;
+            background-color: #1f1f1f;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .section {
+            padding: 50px 20px;
+        }
+
+        footer {
+            background-color: #1f1f1f;
+            padding: 20px;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 18px;
+        }
+
+        .cta-button:hover {
+            background-color: #e65c00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Varsity Club - Pickleball Leagues</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="#">Sports</a>
+            <div class="dropdown-content">
+                <a href="pickleball.html">Pickleball</a>
+                <a href="volleyball.html">Volleyball</a>
+                <a href="basketball.html">Basketball</a>
+                <a href="football.html">Football</a>
+                <a href="baseball.html">Baseball</a>
+            </div>
+        </div>
+        <a href="food.html">Food & Drink</a>
+        <div class="dropdown">
+            <a href="#">Leagues</a>
+            <div class="dropdown-content">
+                <a href="pickleball-leagues.html">Pickleball</a>
+                <a href="volleyball-leagues.html">Volleyball</a>
+            </div>
+        </div>
+    </nav>
+    <div class="section">
+        <h2>Join Our Pickleball Leagues</h2>
+        <p>Our pickleball leagues run from **late spring to early fall**, with league play happening on **weeknights from 5:00 PM to 9:00 PM**.</p>
+        
+        <h3>Recreational Leagues</h3>
+        <p>Recreational leagues are designed for those who want to play for fun and stay active. Games are held on **Mondays and Wednesdays** from **5:00 PM to 9:00 PM**.</p>
+        
+        <h3>Competitive Leagues</h3>
+        <p>If you're looking for a more competitive experience, our competitive leagues are held on **Tuesdays and Thursdays** from **5:00 PM to 9:00 PM**. Test your skills against some of the best players in the area!</p>
+        
+        <h3>League Schedule</h3>
+        <ul>
+            <li>**Recreational Leagues**: Mondays & Wednesdays, 5:00 PM - 9:00 PM</li>
+            <li>**Competitive Leagues**: Tuesdays & Thursdays, 5:00 PM - 9:00 PM</li>
+        </ul>
+
+        <h3>How to Sign Up</h3>
+        <p>Sign up today to reserve your spot! Whether you're forming a team or joining as an individual, we'd love to have you join us.</p>
+        <button class="cta-button" onclick="openPopup('league_signup')">Sign Up for a League</button>
+    </div>
+
+    <!-- Pop-Up Form (for signing up) -->
+    <div id="popup" class="popup" style="display:none;">
+        <div id="popup-content"></div>
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <footer>
+        <p>Contact us | Follow us on social media | Varsity Club &copy; 2025 - Grand Rapids</p>
+    </footer>
+
+    <script>
+        function openPopup(type) {
+            let popupContent = '';
+            if (type === 'league_signup') {
+                popupContent = `<h2>Sign Up for Pickleball League</h2>
+                                <p>Enter your details to sign up for one of our leagues!</p>
+                                <input type='text' id='name' placeholder='Your Name'>
+                                <input type='email' id='email' placeholder='Your Email'>
+                                <button onclick='submitForm("${type}")'>Submit</button>`;
+            }
+            document.getElementById('popup-content').innerHTML = popupContent;
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function submitForm(action) {
+            let name = document.getElementById('name').value;
+            let email = document.getElementById('email').value;
+            if (name && email) {
+                fetch('https://your-tracking-endpoint.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: action, name: name, email: email, timestamp: new Date().toISOString() })
+                });
+                alert('Thank you for signing up! We will contact you shortly.');
+                closePopup();
+            } else {
+                alert('Please enter a valid name and email address.');
+            }
+        }
+    </script>
+</body>
+</html>
