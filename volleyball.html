@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varsity Club | Volleyball</title>
+    <script>
+        function trackClick(action) {
+            fetch('https://your-tracking-endpoint.com/track', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: action, timestamp: new Date().toISOString() })
+            });
+        }
+
+        function openPopup(type) {
+            let popupContent = '';
+            if (type === 'join_waitlist' || type === 'membership_info' || type === 'contact_us') {
+                popupContent = `<h2>Sign Up for More Info</h2>
+                                <p>Enter your email to stay updated on upcoming events and promotions!</p>
+                                <input type='email' id='email' placeholder='Your Email'>
+                                <button onclick='submitForm("${type}")'>Submit</button>`;
+            } else if (type === 'book_event') {
+                popupContent = `<h2>Book a Volleyball Court</h2>
+                                <p>Enter your email, and we will assist you in booking your next game!</p>
+                                <input type='email' id='email' placeholder='Your Email'>
+                                <button onclick='submitForm("${type}")'>Submit</button>`;
+            }
+            document.getElementById('popup-content').innerHTML = popupContent;
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function submitForm(action) {
+            let email = document.getElementById('email').value;
+            if (email) {
+                fetch('https://your-tracking-endpoint.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: action, email: email, timestamp: new Date().toISOString() })
+                });
+                alert('Thank you! We will be in touch soon.');
+                closePopup();
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+        }
+        header {
+            padding: 20px;
+            background-color: #1f1f1f;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .hero {
+            padding: 50px;
+            background: url('volleyball.jpg') no-repeat center center/cover;
+        }
+        .cta-button {
+            padding: 15px 30px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 18px;
+        }
+        .section {
+            padding: 50px 20px;
+        }
+        footer {
+            background-color: #1f1f1f;
+            padding: 20px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            color: black;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Varsity Club - Volleyball</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="#">Sports</a>
+            <div class="dropdown-content">
+                <a href="pickleball.html">Pickleball</a>
+                <a href="volleyball.html">Volleyball</a>
+                <a href="basketball.html">Basketball</a>
+                <a href="football.html">Football</a>
+                <a href="baseball.html">Baseball</a>
+            </div>
+        </div>
+        <a href="food.html">Food and Drink</a>
+        <a href="Leagues">Leagues</a>
+    </nav>
+    <div class="hero">
+        <h2>Welcome to Volleyball at Varsity Club</h2>
+        <button class="cta-button" onclick="openPopup('join_waitlist')">Join the Waitlist</button>
+        <button class="cta-button" onclick="openPopup('book_event')">Book a Court</button>
+    </div>
+    <div class="section">
+        <h2>About Volleyball</h2>
+        <p>Volleyball is a thrilling and fast-paced sport that's enjoyed by people of all skill levels. Whether you’re looking to practice your serves or engage in an exciting match with friends, volleyball offers something for everyone!</p>
+        <p>At Varsity Club, we have **4 sand volleyball courts on our roof** that are perfect for both casual play and organized tournaments.</p>
+    </div>
+    <div class="section">
+        <h2>Volleyball Schedule</h2>
+        <p>Drop-in play is available anytime during regular business hours, 9:00 AM to 5:00 PM.</p>
+        <p>After 5:00 PM, we recommend reserving a court to ensure availability.</p>
+        <p>To reserve a court or check availability, please <button class="cta-button" onclick="openPopup('book_event')">Book a Court</button>.</p>
+    </div>
+    <footer>
+        <p>&copy; 2025 Varsity Club. All rights reserved.</p>
+    </footer>
+
+    <!-- Popup Modal -->
+    <div id="popup" class="popup">
+        <div id="popup-content"></div>
+        <button onclick="closePopup()">Close</button>
+    </div>
+</body>
+</html>
