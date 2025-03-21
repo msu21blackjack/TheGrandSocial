@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Varsity Club | Baseball</title>
+    <script>
+        function trackClick(action) {
+            fetch('https://your-tracking-endpoint.com/track', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: action, timestamp: new Date().toISOString() })
+            });
+        }
+
+        function openPopup(type) {
+            let popupContent = '';
+            if (type === 'join_waitlist' || type === 'membership_info' || type === 'contact_us') {
+                popupContent = `<h2>Sign Up for More Info</h2>
+                                <p>Enter your email to stay updated on upcoming events and promotions!</p>
+                                <input type='email' id='email' placeholder='Your Email'>
+                                <button onclick='submitForm("${type}")'>Submit</button>`;
+            } else if (type === 'book_event') {
+                popupContent = `<h2>Book a Baseball Bay</h2>
+                                <p>Enter your email, and we will assist you in booking your next session!</p>
+                                <input type='email' id='email' placeholder='Your Email'>
+                                <button onclick='submitForm("${type}")'>Submit</button>`;
+            }
+            document.getElementById('popup-content').innerHTML = popupContent;
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function submitForm(action) {
+            let email = document.getElementById('email').value;
+            if (email) {
+                fetch('https://your-tracking-endpoint.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: action, email: email, timestamp: new Date().toISOString() })
+                });
+                alert('Thank you! We will be in touch soon.');
+                closePopup();
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+        }
+        header {
+            padding: 20px;
+            background-color: #1f1f1f;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #575757;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .hero {
+            padding: 50px;
+            background: url('baseball.jpg') no-repeat center center/cover;
+        }
+        .cta-button {
+            padding: 15px 30px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            font-size: 18px;
+        }
+        .section {
+            padding: 50px 20px;
+        }
+        footer {
+            background-color: #1f1f1f;
+            padding: 20px;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            color: black;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Varsity Club - Baseball</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <a href="#">Sports</a>
+            <div class="dropdown-content">
+                <a href="pickleball.html">Pickleball</a>
+                <a href="volleyball.html">Volleyball</a>
+                <a href="basketball.html">Basketball</a>
+                <a href="football.html">Football</a>
+                <a href="baseball.html">Baseball</a>
+            </div>
+        </div>
+        <a href="food.html">Food and Drink</a>
+        <a href="Leagues">Leagues</a>
+    </nav>
+    <div class="hero">
+        <h2>Welcome to Baseball at Varsity Club</h2>
+        <button class="cta-button" onclick="openPopup('join_waitlist')">Join the Waitlist</button>
+        <button class="cta-button" onclick="openPopup('book_event')">Book a Baseball Bay</button>
+    </div>
+    <div class="section">
+        <h2>About Baseball at Varsity Club</h2>
+        <p>Step up to the plate at Varsity Club, where our **Baseball Bays** take the sport to the next level! Whether you're working on your pitching speed, testing your aim with target games, or just having fun, we've got something for every baseball lover.</p>
+        <p>Our high-tech baseball bays offer an array of fun and challenging games. Test your pitching arm by going head-to-head with speed challenges or aim for moving targets to knock them down, carnival-style. You can also challenge your friends to a **home run derby** or take part in a **strikeout challenge**—the choice is yours!</p>
+        <p>**Food and drink service** is available so you can grab a bite and relax between games. These bays are perfect for friends, families, or team events, and they're ideal for anyone wanting to improve their skills or just have a great time.</p>
+    </div>
+    <div class="section">
+        <h2>Baseball Bay Games</h2>
+        <p>Get ready for a unique baseball experience! Here are some of the exciting games you can enjoy in our baseball bays:</p>
+        <ul>
+            <li><strong>Pitching Speed Challenge:</strong> How fast can you throw? Test your pitching speed and see if you can break the radar!</li>
+            <li><strong>Knock Over Targets:</strong> Knock down moving targets with pinpoint precision. It’s like a carnival game with a baseball twist!</li>
+            <li><strong>Home Run Derby:</strong> Step up to the plate and see how many home runs you can hit in a row! Can you beat the clock?</li>
+            <li><strong>Strikeout Challenge:</strong> Test your accuracy and try to strike out as many virtual batters as you can within the time limit.</li>
+            <li><strong>Batting Accuracy Challenge:</strong> Aim for specific zones on the field to test your hitting precision—can you hit the sweet spot every time?</li>
+        </ul>
+        <p>Whether you want to challenge yourself or just have a little fun, our baseball bays provide a thrilling experience every time. The technology tracks your stats, so you can compare your results and even compete with friends!</p>
+    </div>
+    <div class="section">
+        <h2>Baseball Bay Schedule and Pricing</h2>
+        <p>Our baseball bays are available for **hourly rentals**, so you can come in, have fun, and leave whenever you're ready. Perfect for friends, families, or team-building events.</p>
+        <p>Want to get in on the action? Simply <button class="cta-button" onclick="openPopup('book_event')">Book a Bay</button> and prepare to take your baseball skills to the next level!</p>
+    </div>
+    <footer>
+        <p>&copy; 2025 Varsity Club. All rights reserved.</p>
+    </footer>
+
+    <!-- Popup Modal -->
+    <div id="popup" class="popup">
+        <div id="popup-content"></div>
+        <button onclick="closePopup()">Close</button>
+    </div>
+</body>
+</html>
