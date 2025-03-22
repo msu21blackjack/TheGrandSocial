@@ -155,26 +155,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="dropdown">
             <a href="#">Sports</a>
             <div class="dropdown-content">
-                <a href="pickleball.html">Pickleball</a>
-                <a href="volleyball.html">Volleyball</a>
-                <a href="basketball.html">Basketball</a>
-                <a href="football.html">Football</a>
-                <a href="baseball.html">Baseball</a>
+                <a href="pickleball.html"  data-action="go_pickleball">Pickleball</a>
+                <a href="volleyball.html" data-action="go_volleyball">Volleyball</a>
+                <a href="basketball.html" data-action="go_basketball">Basketball</a>
+                <a href="football.html" data-action="go_football">Football</a>
+                <a href="baseball.html" data-action="go_baseball">Baseball</a>
             </div>
         </div>
         <a href="food.html">Food and Drink</a>
-                <div class="dropdown">
+        <div class="dropdown">
             <a href="#">Leagues</a>
             <div class="dropdown-content">
-                <a href="volleyball_leagues.html">Volleyball</a>
-                <a href="pickleball_leagues.html">Pickleball</a>
+                <a href="volleyball_leagues.html" data-action="go_volleyball_leagues">Volleyball</a>
+                <a href="pickleball_leagues.html" data-action="go_pickleball_leagues">Pickleball</a>
             </div>
         </div>
+
     </nav>
     <div class="hero">
         <h2>Welcome to Basketball at The Grand Social</h2>
-        <button class="cta-button" onclick="openPopup('join_waitlist')">Join the Waitlist</button>
-        <button class="cta-button" onclick="openPopup('book_event')">Book a Basketball Bay</button>
+        <button class="cta-button" onclick="openPopup('join_waitlist')" data-action="join_waitlist_basketball">Join the Waitlist</button>
+        <button class="cta-button" onclick="openPopup('book_event')" data-action="book_bay_basketball">Book a Basketball Bay</button>
     </div>
     <div class="section">
         <h2>About Basketball at The Grand Social</h2>
@@ -186,7 +187,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2>Basketball Bay Schedule and Pricing</h2>
         <p>Our basketball bays are available for **hourly rentals**. Whether you're looking to shoot some hoops casually or engage in a fun competition, our bays are ready for your next game!</p>
         <p>We recommend booking in advance, especially for groups or during peak hours.</p>
-        <p>To book a basketball bay or check availability, please <button class="cta-button" onclick="openPopup('book_event')">Book a Bay</button>.</p>
+        <p>To book a basketball bay or check availability, please <button class="cta-button" onclick="openPopup('book_event') data-action="book_bay_basketball">Book a Bay</button>.</p>
     </div>
     <footer>
         <p>&copy; 2025 The Grand Social. All rights reserved.</p>
