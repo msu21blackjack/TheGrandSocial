@@ -155,26 +155,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="dropdown">
             <a href="#">Sports</a>
             <div class="dropdown-content">
-                <a href="pickleball.html">Pickleball</a>
-                <a href="volleyball.html">Volleyball</a>
-                <a href="basketball.html">Basketball</a>
-                <a href="football.html">Football</a>
-                <a href="baseball.html">Baseball</a>
+                <a href="pickleball.html"  data-action="go_pickleball">Pickleball</a>
+                <a href="volleyball.html" data-action="go_volleyball">Volleyball</a>
+                <a href="basketball.html" data-action="go_basketball">Basketball</a>
+                <a href="football.html" data-action="go_football">Football</a>
+                <a href="baseball.html" data-action="go_baseball">Baseball</a>
             </div>
         </div>
         <a href="food.html">Food and Drink</a>
-             <div class="dropdown">
+        <div class="dropdown">
             <a href="#">Leagues</a>
             <div class="dropdown-content">
-                <a href="volleyball_leagues.html">Volleyball</a>
-                <a href="pickleball_leagues.html">Pickleball</a>
+                <a href="volleyball_leagues.html" data-action="go_volleyball_leagues">Volleyball</a>
+                <a href="pickleball_leagues.html" data-action="go_pickleball_leagues">Pickleball</a>
             </div>
         </div>
-    </nav>
-    <div class="hero">
+
+    </nav>    <div class="hero">
         <h2>Welcome to Pickleball at The Grand Social</h2>
-        <button class="cta-button" onclick="openPopup('join_waitlist')">Join the Waitlist</button>
-        <button class="cta-button" onclick="openPopup('book_event')">Book a Court</button>
+        <button class="cta-button" onclick="openPopup('join_waitlist')" data-action="join_waitlist_pickleball">Join the Waitlist</button>
+        <button class="cta-button" onclick="openPopup('book_event')" data-action="book_event_pickleball">Book a Court</button>
     </div>
     <div class="section">
         <h2>About Pickleball</h2>
@@ -185,4 +185,4 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2>Pickleball Schedule</h2>
         <p>Drop-in play is available anytime during regular business hours, 9:00 AM to 5:00 PM.</p>
         <p>After 5:00 PM, we suggest reserving a court to ensure availability.</p>
-        <p>To reserve a court or check availability, please <button class="cta-button" onclick="openPopup('book_e
+        <p>To reserve a court or check availability, please <button class="cta-button" onclick="openPopup('book_event')"  data-action="book_event_pickleball">Book a Court</button>
