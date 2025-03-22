@@ -2,19 +2,60 @@
 <html lang="en"> 
 <head>
     <!-- Google Tag Manager -->
-    <script>
-        (function(w,d,s,l,i){
-            w[l]=w[l]||[];
-            w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
-            var f=d.getElementsByTagName(s)[0], j=d.createElement(s),
-            dl=l!='dataLayer'?'&l='+l:''; j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-            f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-54VCR9PB');
-    </script>
-    <!-- End Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-54VCR9PB');</script>
+<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Grand Social | Pickleball</title>
+    <title>The Grand Social | Volleyball</title>
+    <script>
+        function trackClick(action) {
+            fetch('https://your-tracking-endpoint.com/track', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: action, timestamp: new Date().toISOString() })
+            });
+        }
+
+        function openPopup(type) {
+            let popupContent = '';
+            if (type === 'join_waitlist' || type === 'membership_info' || type === 'contact_us') {
+                popupContent = `<h2>Sign Up for More Info</h2>
+                                <p>Enter your email to stay updated on upcoming events and promotions!</p>
+                                <input type='email' id='email' placeholder='Your Email'>
+                                <button onclick='submitForm("${type}")'>Submit</button>`;
+            } else if (type === 'book_event') {
+                popupContent = `<h2>Book a Volleyball Court</h2>
+                                <p>Enter your email, and we will assist you in booking your next game!</p>
+                                <input type='email' id='email' placeholder='Your Email'>
+                                <button onclick='submitForm("${type}")'>Submit</button>`;
+            }
+            document.getElementById('popup-content').innerHTML = popupContent;
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function submitForm(action) {
+            let email = document.getElementById('email').value;
+            if (email) {
+                fetch('https://your-tracking-endpoint.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: action, email: email, timestamp: new Date().toISOString() })
+                });
+                alert('Thank you! We will be in touch soon.');
+                closePopup();
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        }
+    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -68,6 +109,10 @@
             display: block;
         }
 
+        .hero {
+            padding: 50px;
+            background: url('volleyball.jpg') no-repeat center center/cover;
+        }
         .cta-button {
             padding: 15px 30px;
             background-color: #ff6600;
@@ -77,10 +122,15 @@
             margin: 10px;
             font-size: 18px;
         }
-
-        /* Popup Styles */
+        .section {
+            padding: 50px 20px;
+        }
+        footer {
+            background-color: #1f1f1f;
+            padding: 20px;
+        }
         .popup {
-            display: none;  /* Hidden by default */
+            display: none;
             position: fixed;
             top: 50%;
             left: 50%;
@@ -90,29 +140,6 @@
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
-
-        .popup button {
-            background-color: #ff6600;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        /* Close Button */
-        .popup button.close {
-            background-color: red;
-        }
-
-        .section {
-            padding: 50px 20px;
-        }
-
-        footer {
-            background-color: #1f1f1f;
-            padding: 20px;
-        }
     </style>
 </head>
 <body>
@@ -120,9 +147,11 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54VCR9PB"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    
     <header>
         <h1>The Grand Social - Pickleball</h1>
     </header>
+
     <nav>
         <a href="index.html">Home</a>
         <div class="dropdown">
@@ -143,7 +172,7 @@
                 <a href="pickleball_leagues.html" data-action="go_pickleball_leagues">Pickleball</a>
             </div>
         </div>
-    </nav>    
+    </nav>
 
     <div class="hero">
         <h2>Welcome to Pickleball at The Grand Social</h2>
