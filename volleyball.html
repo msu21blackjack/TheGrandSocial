@@ -108,7 +108,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .dropdown:hover .dropdown-content {
             display: block;
         }
-
+        .transparent-photo {
+            position: relative;
+            background: url('volleyball.png') no-repeat center center;
+            background-size: cover;
+            height: 300px; /* Adjust the height as needed */
+            opacity: 0.5; /* Adjust opacity for transparency */
+            z-index: -1;
+        }		
+		
         .hero {
             padding: 50px;
             background: url('volleyball.jpg') no-repeat center center/cover;
@@ -172,6 +180,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
     </nav>
+	<div class="transparent-photo">
     <div class="hero">
         <h2>Welcome to Volleyball at The Grand Social</h2>
         <button class="cta-button" onclick="openPopup('join_waitlist')" data-action="join_waitlist_volleyball">Join the Waitlist</button>
