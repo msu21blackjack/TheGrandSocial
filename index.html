@@ -109,6 +109,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .dropdown:hover .dropdown-content {
             display: block;
         }
+		.transparent-photo {
+            position: relative;
+            background: url('bar.jpg') no-repeat center center;
+            background-size: cover;
+            height: 300px; /* Adjust the height as needed */
+            opacity: 0.5; /* Adjust opacity for transparency */
+            z-index: -1;
+        }
 
         .hero {
             padding: 50px;
@@ -172,21 +180,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
 
-    </nav>    <div class="hero">
+    </nav> 
+<div class="transparent-photo">
+	<div class="hero">
         <h2>The Ultimate Sports & Entertainment Experience</h2>
-        <button class="cta-button" onclick="openPopup('join_waitlist')" data-action="join_waitlist_general">Join the Waitlist</button>
-        <button class="cta-button" onclick="openPopup('book_event')" data-action="book_event_general">Book an Event</button>
-    </div>
-    <div class="section">
+		</div
+
+</div>
+</div>
         <h2>About Us</h2>
         <p>The Grand Social is your home for high-tech sports bays, leagues, private events, and a full-service bar and restaurant in Grand Rapids.</p>
-    </div>
+        <button class="cta-button" onclick="openPopup('join_waitlist')" data-action="join_waitlist_general">Join the Waitlist</button>
+        <button class="cta-button" onclick="openPopup('book_event')" data-action="book_event_general">Book an Event</button>
     <div id="popup" class="popup">
         <div id="popup-content"></div>
         <button onclick="closePopup()">Close</button>
     </div>
     <footer>
-        <p>Contact us | Follow us on social media | The Grand Social &copy; 2025 - Grand Rapids</p>
+        <p>&copy; 2025 The Grand Social. All rights reserved.</p>
     </footer>
 </body>
 </html>
