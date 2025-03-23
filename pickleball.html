@@ -11,51 +11,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Grand Social | Volleyball</title>
-    <script>
-        function trackClick(action) {
-            fetch('https://your-tracking-endpoint.com/track', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ action: action, timestamp: new Date().toISOString() })
-            });
-        }
-
-        function openPopup(type) {
-            let popupContent = '';
-            if (type === 'join_waitlist' || type === 'membership_info' || type === 'contact_us') {
-                popupContent = `<h2>Sign Up for More Info</h2>
-                                <p>Enter your email to stay updated on upcoming events and promotions!</p>
-                                <input type='email' id='email' placeholder='Your Email'>
-                                <button onclick='submitForm("${type}")'>Submit</button>`;
-            } else if (type === 'book_event') {
-                popupContent = `<h2>Book a Volleyball Court</h2>
-                                <p>Enter your email, and we will assist you in booking your next game!</p>
-                                <input type='email' id='email' placeholder='Your Email'>
-                                <button onclick='submitForm("${type}")'>Submit</button>`;
-            }
-            document.getElementById('popup-content').innerHTML = popupContent;
-            document.getElementById('popup').style.display = 'block';
-        }
-
-        function closePopup() {
-            document.getElementById('popup').style.display = 'none';
-        }
-
-        function submitForm(action) {
-            let email = document.getElementById('email').value;
-            if (email) {
-                fetch('https://your-tracking-endpoint.com/submit', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: action, email: email, timestamp: new Date().toISOString() })
-                });
-                alert('Thank you! We will be in touch soon.');
-                closePopup();
-            } else {
-                alert('Please enter a valid email address.');
-            }
-        }
-    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -125,6 +80,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .section {
             padding: 50px 20px;
         }
+
+        /* Transparent image section */
+        .transparent-photo {
+            position: relative;
+            background: url('pickleball.webp') no-repeat center center;
+            background-size: cover;
+            height: 300px; /* Adjust the height as needed */
+            opacity: 0.5; /* Adjust opacity for transparency */
+            z-index: -1;
+        }
+
         footer {
             background-color: #1f1f1f;
             padding: 20px;
@@ -173,7 +139,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </div>
         </div>
     </nav>
-
+    <div class="transparent-photo">
     <div class="hero">
         <h2>Welcome to Pickleball at The Grand Social</h2>
         <button class="cta-button" onclick="openPopup('join_waitlist')">Join the Waitlist</button>
@@ -185,12 +151,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <p>Pickleball is one of the fastest-growing sports in the U.S. Played on a smaller court, it's a great sport for all ages!</p>
     </div>
 
-    <!-- Popup Modal -->
-    <div id="popup" class="popup">
-        <div id="popup-content"></div>
-        <button class="close" onclick="closePopup()">Close</button>
-    </div>
-
+</div>
     <footer>
         <p>Contact us | Follow us on social media | The Grand Social &copy; 2025</p>
     </footer>
