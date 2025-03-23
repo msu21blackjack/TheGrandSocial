@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-54VCR9PB');</script>
-<!-- End Google Tag Manager -->
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-54VCR9PB');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Grand Social | Basketball</title>
@@ -100,6 +100,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-decoration: none;
             display: block;
         }
+        .transparent-photo {
+            position: relative;
+            background: url('Basketball.png') no-repeat center center;
+            background-size: cover;
+            height: 300px; /* Adjust the height as needed */
+            opacity: 0.7; /* Adjust opacity for better contrast */
+            z-index: 0;
+        }
+        
+        /* Add overlay to improve text readability */
+        .transparent-photo::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+            z-index: -1;
+        }
 
         .dropdown-content a:hover {
             background-color: #575757;
@@ -122,6 +142,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin: 10px;
             font-size: 18px;
         }
+        .cta-button:hover {
+            background-color: #e65c00;
+        }
         .section {
             padding: 50px 20px;
         }
@@ -140,13 +163,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
         }
+
+        .transparent-photo h2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            z-index: 1;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
     </style>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54VCR9PB"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-54VCR9PB"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header>
         <h1>The Grand Social - Basketball</h1>
     </header>
@@ -170,25 +204,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="pickleball_leagues.html" data-action="go_pickleball_leagues">Pickleball</a>
             </div>
         </div>
-
     </nav>
-    <div class="hero">
-        <h2>Welcome to Basketball at The Grand Social</h2>
-        <button class="cta-button" onclick="openPopup('join_waitlist')" data-action="join_waitlist_basketball">Join the Waitlist</button>
-        <button class="cta-button" onclick="openPopup('book_event')" data-action="book_bay_basketball">Book a Basketball Bay</button>
+    <div class="transparent-photo">
+        <div class="section">
+            <h2>Welcome to Basketball at The Grand Social</h2>
+        </div>     
     </div>
     <div class="section">
-        <h2>About Basketball at The Grand Social</h2>
-        <p>At The Grand Social, we offer an exciting, high-tech basketball experience. Our **basketball bays** are equipped with real-size hoops and cutting-edge technology to create thrilling shooting-based games. It's like a pop-a-shot, but with a twist!</p>
-        <p>These sports bays can be rented by the hour and are great for individuals or groups. Challenge your friends, track your shooting stats, and have a blast with our interactive games.</p>
-        <p>Food and drink service is available for groups, so you can enjoy a snack or refreshment while competing in your basketball challenge!</p>
-    </div>
-    <div class="section">
-        <h2>Basketball Bay Schedule and Pricing</h2>
         <p>Our basketball bays are available for **hourly rentals**. Whether you're looking to shoot some hoops casually or engage in a fun competition, our bays are ready for your next game!</p>
         <p>We recommend booking in advance, especially for groups or during peak hours.</p>
-        <p>To book a basketball bay or check availability, please <button class="cta-button" onclick="openPopup('book_event')" data-action="book_bay_basketball">Book a Bay</button>.</p>
-    </div>
+
+        <p>At The Grand Social, we offer an exciting, high-tech basketball experience. Our **basketball bays** are equipped with real-size hoops and cutting-edge technology to create thrilling shooting-based games. It's like a pop-a-shot, but with a twist!</p>
+        <h2>Basketball Bay Schedule and Pricing</h2>
+        <p>These sports bays can be rented by the hour and are great for individuals or groups. Challenge your friends, track your shooting stats, and have a blast with our interactive games.</p>
+        <p>Food and drink service is available for groups, so you can enjoy a snack or refreshment while competing in your basketball challenge!</p>
+
+    <button class="cta-button" onclick="openPopup('join_waitlist')" data-action="join_waitlist_basketball">Join the Waitlist</button>
+    <button class="cta-button" onclick="openPopup('book_event')" data-action="book_bay_basketball">Book a Basketball Bay</button>
+   </div>
     <footer>
         <p>&copy; 2025 The Grand Social. All rights reserved.</p>
     </footer>
