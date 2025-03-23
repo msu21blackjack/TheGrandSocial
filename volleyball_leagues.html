@@ -38,6 +38,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             position: relative;
             display: inline-block;
         }
+        /* Transparent image section */
+        .transparent-photo {
+            position: relative;
+            background: url('volleyball.png') no-repeat center center;
+            background-size: cover;
+            height: 300px; /* Adjust the height as needed */
+            opacity: 0.5; /* Adjust opacity for transparency */
+            z-index: -1;
+        }
 
         .dropdown-content {
             display: none;
@@ -117,8 +126,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
     </nav>
+    <div class="transparent-photo">    
+
     <div class="section">
         <h2>Join Our Volleyball Leagues</h2>
+    </div>
+</div>
+    <!-- Pop-Up Form (for signing up) -->
+    <div id="popup" class="popup" style="display:none;">
+        <div id="popup-content"></div>
+        <button onclick="closePopup()">Close</button>
+    </div>
         <p>Our volleyball leagues run from **late spring to early fall**, with league play happening on **weeknights from 5:00 PM to 9:00 PM**.</p>
         
         <h3>Recreational Leagues</h3>
@@ -126,7 +144,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         
         <h3>Competitive Leagues</h3>
         <p>If you're looking for a more competitive experience, our competitive leagues are held on **Tuesdays and Thursdays** from **5:00 PM to 9:00 PM**. Test your skills against some of the best players in the area!</p>
-        
+       
         <h3>League Schedule</h3>
         <ul>
             <li>**Recreational Leagues**: Mondays & Wednesdays, 5:00 PM - 9:00 PM</li>
@@ -136,13 +154,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3>How to Sign Up</h3>
         <p>Sign up today to reserve your spot! Whether you're forming a team or joining as an individual, we'd love to have you join us.</p>
         <button class="cta-button" onclick="openPopup('league_signup')" data-action="signup_volleyball_league">Sign Up for a League</button>
-    </div>
-
-    <!-- Pop-Up Form (for signing up) -->
-    <div id="popup" class="popup" style="display:none;">
-        <div id="popup-content"></div>
-        <button onclick="closePopup()">Close</button>
-    </div>
 
     <footer>
         <p>Contact us | Follow us on social media | The Grand Social &copy; 2025 - Grand Rapids</p>
