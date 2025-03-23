@@ -73,6 +73,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             background-color: #333;
             padding: 10px;
         }
+		        .transparent-photo {
+            position: relative;
+            background: url('football.webp') no-repeat center center;
+            background-size: cover;
+            height: 300px; /* Adjust the height as needed */
+            opacity: 0.5; /* Adjust opacity for transparency */
+            z-index: -1;
+        }
         nav a {
             color: white;
             margin: 10px;
@@ -172,22 +180,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
     </nav>
-    <div class="hero">
+		<div class="transparent-photo">
+		<div class="hero">
         <h2>Welcome to Football at The Grand Social</h2>
-        <button class="cta-button" onclick="openPopup('join_waitlist')" data-action="join_waitlist_football">Join the Waitlist</button>
-        <button class="cta-button" onclick="openPopup('book_event')" data-action="book_bay_football">Book a Football Bay</button>
-    </div>
+</div>
+     </div>
     <div class="section">
         <h2>About Football at The Grand Social</h2>
         <p>At The Grand Social, we bring you a truly unique football experience. Our **football bays** combine advanced technology with real-world action! Imagine kicking a field goal or hitting a moving target—our bays offer thrilling interactive football games designed for fun and skill-building.</p>
         <p>Whether you're a casual player or a die-hard football fan, these bays offer an exciting way to practice your kicking, accuracy, and agility. You’ll find **moving targets**, **field goal challenges**, and more, all while tracking your performance through our cutting-edge technology!</p>
         <p>**Food and drink service** is available for groups, making it the perfect outing for friends or team-building events. Fuel up and compete with your friends in a friendly yet challenging environment!</p>
-    </div>
-    <div class="section">
-        <h2>Football Bay Schedule and Pricing</h2>
+        <button class="cta-button" onclick="openPopup('join_waitlist')" data-action="join_waitlist_football">Join the Waitlist</button>
+        <button class="cta-button" onclick="openPopup('book_event')" data-action="book_bay_football">Book a Football Bay</button>
+ 
+ <h2>Football Bay Schedule and Pricing</h2>
         <p>Our football bays are available for **hourly rentals**. Bring your friends and family to challenge each other in fun, competitive games, or use the time to practice your field goal accuracy!</p>
-        <p>To reserve your football bay, simply <button class="cta-button" onclick="openPopup('book_event')" data-action="book_bay_football">Book a Bay</button> now. Don’t miss out on this one-of-a-kind experience!</p>
-    </div>
+     </div>
     <footer>
         <p>&copy; 2025 The Grand Social. All rights reserved.</p>
     </footer>
