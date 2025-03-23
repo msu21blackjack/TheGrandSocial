@@ -62,6 +62,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         .dropdown:hover .dropdown-content {
             display: block;
         }
+        /* Transparent image section */
+        .transparent-photo {
+            position: relative;
+            background: url('pickleball.webp') no-repeat center center;
+            background-size: cover;
+            height: 300px; /* Adjust the height as needed */
+            opacity: 0.5; /* Adjust opacity for transparency */
+            z-index: -1;
+        }
 
         .section {
             padding: 50px 20px;
@@ -117,26 +126,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
     </nav>
+    <div class="transparent-photo">    
     <div class="section">
-        <h2>Join Our Pickleball Leagues</h2>
-        <p>Our pickleball leagues run from **late spring to early fall**, with league play happening on **weeknights from 5:00 PM to 9:00 PM**.</p>
-        
-        <h3>Recreational Leagues</h3>
-        <p>Recreational leagues are designed for those who want to play for fun and stay active. Games are held on **Mondays and Wednesdays** from **5:00 PM to 9:00 PM**.</p>
-        
-        <h3>Competitive Leagues</h3>
-        <p>If you're looking for a more competitive experience, our competitive leagues are held on **Tuesdays and Thursdays** from **5:00 PM to 9:00 PM**. Test your skills against some of the best players in the area!</p>
-        
-        <h3>League Schedule</h3>
+        <h2>Join Our Pickleball Leagues</h2>    
+     </div>
+       <h3>League Schedule</h3>
         <ul>
             <li>**Recreational Leagues**: Mondays & Wednesdays, 5:00 PM - 9:00 PM</li>
             <li>**Competitive Leagues**: Tuesdays & Thursdays, 5:00 PM - 9:00 PM</li>
         </ul>
-
+	</div>
+	
         <h3>How to Sign Up</h3>
         <p>Sign up today to reserve your spot! Whether you're forming a team or joining as an individual, we'd love to have you join us.</p>
         <button class="cta-button" onclick="openPopup('league_signup')" data-action="signup_pickleball_league">Sign Up for a League</button>
-    </div>
+
 
     <!-- Pop-Up Form (for signing up) -->
     <div id="popup" class="popup" style="display:none;">
