@@ -160,18 +160,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script>
         function openPopup(type) {
             let popupContent = '';
-            if (type === 'join_waitlist') {
+            if (type === 'join_waitlist' || type === 'membership_info' || type === 'contact_us') {
                 popupContent = `<h2>Sign Up for More Info</h2>
                                 <p>Enter your email to stay updated on upcoming events and promotions!</p>
-                                <input type="email" id="email" placeholder="Your Email">
-                                <button onclick="submitForm('join_waitlist')">Submit</button>`;
+                                <input type='email' id='email' placeholder='Your Email'>
+                                <button onclick='submitForm("${type}")'>Submit</button>`;
             } else if (type === 'book_event') {
-                popupContent = `<h2>Book a Pickleball Court</h2>
+                popupContent = `<h2>Book a Volleyball Court</h2>
                                 <p>Enter your email, and we will assist you in booking your next game!</p>
-                                <input type="email" id="email" placeholder="Your Email">
-                                <button onclick="submitForm('book_event')">Submit</button>`;
+                                <input type='email' id='email' placeholder='Your Email'>
+                                <button onclick='submitForm("${type}")'>Submit</button>`;
             }
-
             document.getElementById('popup-content').innerHTML = popupContent;
             document.getElementById('popup').style.display = 'block';
         }
@@ -180,15 +179,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             document.getElementById('popup').style.display = 'none';
         }
 
-        function submitForm(action) {
-            let email = document.getElementById('email').value;
-            if (email) {
-                alert('Thank you! We will be in touch soon.');
-                closePopup();
-            } else {
-                alert('Please enter a valid email address.');
-            }
-        }
     </script>
+	
+	
+    <!-- Popup Modal -->
+    <div id="popup" class="popup">
+        <div id="popup-content"></div>
+        <button onclick="closePopup()">Close</button>
+    </div>
+	
 </body>
 </html>
