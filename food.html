@@ -34,6 +34,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             text-decoration: none;
             font-size: 18px;
         }
+		
+        .hero {
+            padding: 50px;
+            background: url('food.jpg') no-repeat center center/cover;
+        }		
+		
+		        .transparent-photo {
+            position: relative;
+            background: url('food.jpg') no-repeat center center;
+            background-size: cover;
+            height: 200px; /* Adjust the height as needed */
+            opacity: 0.7; /* Adjust opacity for better contrast */
+            z-index: 0;
+        }
         .dropdown {
             position: relative;
             display: inline-block;
@@ -102,9 +116,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 	<a href="https://docs.google.com/forms/d/e/1FAIpQLSdBz6JRMYglDdn0L2Obh0TT3twbLks7FfFGfqFuflqXCsLR1w/viewform?usp=sharing" target="_blank">Give Us Feedback</a>
     </nav>
-    <div class="section">
-        <h2>Our Menu</h2>
-        <p>Enjoy a variety of delicious food and refreshing drinks while experiencing the best in sports entertainment.</p>
+	    <div class="transparent-photo">
+        <div class="section">
+            <h2>Our Menu</h2>
+        </div>     
+    </div>
+	        <p>Enjoy a variety of delicious food and refreshing drinks while experiencing the best in sports entertainment.</p>
         <h3>Featured Items</h3>
       
             <p>Signature Burgers</p>
@@ -114,7 +131,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>Healthy Salads & Bowls</p>
       
         <h2>Full menu coming soon!</h2>
-    </div>
+ 
 	<footer>
         <p>&copy; 2025 The Grand Social. All rights reserved.</p>
     </footer>
