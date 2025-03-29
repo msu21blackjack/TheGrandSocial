@@ -40,12 +40,18 @@
         }
         .transparent-photo {
             position: relative;
-            background: url('volleyball.png') no-repeat center center;
+            background: url('volleyball.png') no-repeat center center/cover;
             background-size: cover;
             height: 200px;
             opacity: 0.5;
             z-index: -1;
         }
+        .hero {
+            padding: 50px;
+            background: url('volleyball.jpg') no-repeat center center/cover;
+        }
+
+
         .dropdown-content {
             display: none;
             position: absolute;
@@ -129,15 +135,14 @@
         </div>
     <a href="https://form.typeform.com/to/GksuvR74" target="_blank">Give Us Feedback</a>
     </nav>
-    <div class="transparent-photo">
+	<div class="transparent-photo">
+    <div class="hero">
         <h2>Join Our Volleyball Leagues</h2>
+     </div>
+	 </div>
         <h3>League Schedule</h3>
-        <ul>
-            <li>**Recreational Leagues**: Mondays & Wednesdays, 5:00 PM - 9:00 PM</li>
-            <li>**Competitive Leagues**: Tuesdays & Thursdays, 5:00 PM - 9:00 PM</li>
-        </ul>
-
-	</div>
+        <p>**Recreational Leagues**: Mondays & Wednesdays, 5:00 PM - 9:00 PM</p>
+        <p>**Competitive Leagues**: Tuesdays & Thursdays, 5:00 PM - 9:00 PM</p>
         <h3>How to Sign Up</h3>
         <p>Sign up today to reserve your spot! Whether you're forming a team or joining as an individual, we'd love to have you join us.</p>
         <button class="cta-button" onclick="openPopup('league_signup')" data-action="signup_volleyball_league">Sign Up for a League</button>
